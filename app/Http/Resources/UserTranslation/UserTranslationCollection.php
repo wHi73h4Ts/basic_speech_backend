@@ -5,7 +5,7 @@ namespace App\Http\Resources\UserTranslation;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class TranslationCollection extends ResourceCollection
+class UserTranslationCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.

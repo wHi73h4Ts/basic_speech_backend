@@ -4,70 +4,51 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTranslationRequest;
 use App\Http\Requests\UpdateTranslationRequest;
+use App\Http\Resources\Translation\TranslationCollection;
+use App\Http\Resources\Translation\TranslationResource;
 use App\Models\Translation;
+use Illuminate\Http\Request;
 
 class TranslationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request): TranslationCollection
     {
-        $translations = Translation::all();
-        return view('translations.index', compact('translations'));
+        return new TranslationCollection($request->query());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('translations.create');
-    }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTranslationRequest $request)
+    public function store(StoreTranslationRequest $request): TranslationResource
     {
-        Translation::create($request->validated());
-        return redirect()->route('translations.index')
-            ->with('success', 'Translation created successfully.');
+        return new TranslationResource(Translation::create($request->all()));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Translation $translation)
+    public function show(Translation $translation): TranslationResource
     {
-        return view('translations.show', compact('translation'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Translation $translation)
-    {
-        return view('translations.edit', compact('translation'));
+        return new TranslationResource($translation);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTranslationRequest $request, Translation $translation)
+    public function update(UpdateTranslationRequest $request, Translation $translation): void
     {
-        $translation->update($request->validated());
-        return redirect()->route('translations.index')
-            ->with('success', 'Translation updated successfully.');
+        $translation->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Translation $translation)
+    public function destroy(Translation $translation): void
     {
         $translation->delete();
-        return redirect()->route('translations.index')
-            ->with('success', 'Translation deleted successfully.');
     }
 }
