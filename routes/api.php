@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\TranslationController;
+use App\Http\Controllers\UserTranslationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
