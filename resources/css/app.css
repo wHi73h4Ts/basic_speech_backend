@@ -1,3 +1,6 @@
+@import '/resources/fonts/disket/disket-font.css';
+@import '/resources/fonts/noah/noah-font.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,3 +8,4 @@
 [x-cloak] {
     display: none;
 }
+

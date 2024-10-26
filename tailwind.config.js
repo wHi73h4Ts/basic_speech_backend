@@ -14,8 +14,13 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Noah Regular', ...defaultTheme.fontFamily.sans],
+                "text": 'Noah Regular',
+                "headline": 'Disket Mono',
             },
+            colors: {
+                "brand": "#08294c",
+            }
         },
     },
 
