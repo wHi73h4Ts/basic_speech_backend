@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('translations', function (Blueprint $table) {
+        Schema::create('translations', static function (Blueprint $table) {
             $table->id();
-            $table->string('translation-identifier');
+            $table->string('translation_identifier');
             $table->longText('translation');
             $table->timestamps();
         });
