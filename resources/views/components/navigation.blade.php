@@ -29,15 +29,15 @@
             <div class="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
                 <div class="flex flex-shrink-0 items-center">
                     <a href="{{route('dashboard')}}">
-                        <img class="h-8 w-auto" src="{{asset('img/icon_logo.png')}}" alt="Your Company">
+                        <img class="h-8 w-auto hover:scale-110 transition-all duration-300" src="{{asset('img/icon_logo.png')}}" alt="Your Company">
                     </a>
                 </div>
                 <div class="hidden sm:ml-6 md:block">
                     <div class="flex space-x-8">
-                        <x-nav-entry :action="route('simplify-text')">
+                        <x-nav-entry :action="route('simplify-text')" :active="request()->routeIs('simplify-text')">
                             {{__('Text leicht lesbar machen')}}
                         </x-nav-entry>
-                        <x-nav-entry :action="route('simplify-pdf')">
+                        <x-nav-entry :action="route('simplify-pdf')" :active="request()->routeIs('simplify-pdf')">
                             {{__('PDF leicht lesbar machen')}}
                         </x-nav-entry>
                     </div>
